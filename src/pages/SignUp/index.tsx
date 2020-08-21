@@ -43,7 +43,9 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
+        console.log("parou antes");
         await api.post("users", data);
+        console.log("parou aqui");
 
         history.push("/");
 

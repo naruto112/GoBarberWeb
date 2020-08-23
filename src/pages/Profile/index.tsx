@@ -11,6 +11,7 @@ import { useToast } from "../../hooks/toast";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import placeholderUser from "../../assets/placeholder.png";
 
 import { Container, Content, AvatarInput } from "./styles";
 import { useAuth } from "../../hooks/auth";
@@ -149,7 +150,12 @@ const Profile: React.FC = () => {
           onSubmit={handleSubmit}
         >
           <AvatarInput>
-            <img src={user.avatar_url} alt={user.name} />
+            {user.avatar_url ? (
+              <img src={user.avatar_url} alt={user.name} />
+            ) : (
+              <img src={placeholderUser} alt="user not avatar" />
+            )}
+
             <label htmlFor="avatar">
               <FiCamera />
               <input type="file" id="avatar" onChange={handleAvatarChange} />

@@ -18,7 +18,7 @@ import {
 } from "./styles";
 
 import logoImg from "../../assets/logo.svg";
-import placeholderUser from "../../assets/placeholder.jpg";
+import placeholderUser from "../../assets/placeholder.png";
 import { FiPower, FiClock } from "react-icons/fi";
 import { useAuth } from "../../hooks/auth";
 import api from "../../services/api";

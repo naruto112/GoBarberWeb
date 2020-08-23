@@ -3,14 +3,11 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import SignUp from "../../pages/SignUp";
 
 const mockedHistoryPush = jest.fn();
-const mockedApi = jest.fn(() => true);
 const mockedAddToast = jest.fn();
 
 jest.mock("../../services/api", () => {
   return {
-    api: () => ({
-      post: mockedApi,
-    }),
+    post: jest.fn(),
   };
 });
 
@@ -63,10 +60,10 @@ describe("SignUp Page", () => {
     });
   });
 
-  //   it("should be able to validation values in fields to register", async () => {
-  //     const { getByPlaceholderText, getByText } = render(<SignUp />);
+  // it("should be able to validation values in fields to register", async () => {
+  //   const { getByPlaceholderText, getByText } = render(<SignUp />);
 
-  //     const nameField
+  //   const nameField
 
-  //   })
+  // })
 });

@@ -4,6 +4,7 @@ import SignUp from "../../pages/SignUp";
 
 const mockedHistoryPush = jest.fn();
 const mockedAddToast = jest.fn();
+const mockedFormRef = jest.fn();
 
 jest.mock("../../services/api", () => {
   return {
@@ -24,6 +25,14 @@ jest.mock("../../hooks/toast", () => {
   return {
     useToast: () => ({
       addToast: mockedAddToast,
+    }),
+  };
+});
+
+jest.mock("", () => {
+  return {
+    useRef: () => ({
+      FormRef: mockedFormRef,
     }),
   };
 });
@@ -60,10 +69,31 @@ describe("SignUp Page", () => {
     });
   });
 
-  // it("should be able to validation values in fields to register", async () => {
-  //   const { getByPlaceholderText, getByText } = render(<SignUp />);
+  it("should be able to validation values in fields to register", async () => {
+    const { getByPlaceholderText, getByText } = render(<SignUp />);
 
-  //   const nameField
+    const nameField = getByPlaceholderText("Nome");
+    const emailField = getByPlaceholderText("E-mail");
+    const passwordField = getByPlaceholderText("Senha");
 
-  // })
+    const buttonElement = getByText("Cadastrar");
+
+    fireEvent.change(nameField, {
+      target: { value: "Renato Souza" },
+    });
+
+    fireEvent.change(emailField, {
+      target: { value: "not-email-validation" },
+    });
+
+    fireEvent.change(passwordField, {
+      target: { value: "1233456" },
+    });
+
+    fireEvent.click(buttonElement);
+
+    await waitFor(() => {
+      expect(mockedHistoryPush).not.toHaveBeenCalledWith("/");
+    });
+  });
 });

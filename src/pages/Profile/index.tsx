@@ -134,11 +134,9 @@ const Profile: React.FC = () => {
   return (
     <Container>
       <header>
-        <div>
-          <Link to="/dashboard">
-            <FiArrowLeft />
-          </Link>
-        </div>
+        <Link to="/dashboard">
+          <FiArrowLeft />
+        </Link>
       </header>
       <Content>
         <Form

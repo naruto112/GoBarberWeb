@@ -164,7 +164,7 @@ const Dashboard: React.FC = () => {
       </Header>
       <Content>
         <Schedule>
-          <h1>Horários agendados</h1>
+          <h2>Horários agendados</h2>
           <p>
             {isToday(selectedDate) && <span>Hoje</span>}
             <span>{selectedDateAsText}</span>
@@ -187,6 +187,33 @@ const Dashboard: React.FC = () => {
               </div>
             </NextAppointment>
           )}
+          <Calendar>
+            <DayPicker
+              weekdaysShort={["D", "S", "T", "Q", "Q", "S", "S"]}
+              fromMonth={new Date()}
+              disabledDays={[{ daysOfWeek: [0, 6] }, ...disabledDays]}
+              modifiers={{
+                available: { daysOfWeek: [1, 2, 3, 4, 5] },
+              }}
+              onMonthChange={handleMonthChange}
+              selectedDays={selectedDate}
+              onDayClick={handleDateChange}
+              months={[
+                "Janeiro",
+                "Fevereiro",
+                "Março",
+                "Abril",
+                "Maio",
+                "Junho",
+                "Julho",
+                "Agosto",
+                "Setembro",
+                "Outubro",
+                "Novembro",
+                "Dezembro",
+              ]}
+            />
+          </Calendar>
 
           <Section>
             <strong>Manhã</strong>
@@ -203,7 +230,11 @@ const Dashboard: React.FC = () => {
                 </span>
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={
+                      appointment.user.avatar_url
+                        ? appointment.user.avatar_url
+                        : placeholderUser
+                    }
                     alt={appointment.user.name}
                   />
                   <strong>{appointment.user.name}</strong>
@@ -226,7 +257,11 @@ const Dashboard: React.FC = () => {
                 </span>
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={
+                      appointment.user.avatar_url
+                        ? appointment.user.avatar_url
+                        : placeholderUser
+                    }
                     alt={appointment.user.name}
                   />
                   <strong>{appointment.user.name}</strong>
@@ -235,33 +270,6 @@ const Dashboard: React.FC = () => {
             ))}
           </Section>
         </Schedule>
-        <Calendar>
-          <DayPicker
-            weekdaysShort={["D", "S", "T", "Q", "Q", "S", "S"]}
-            fromMonth={new Date()}
-            disabledDays={[{ daysOfWeek: [0, 6] }, ...disabledDays]}
-            modifiers={{
-              available: { daysOfWeek: [1, 2, 3, 4, 5] },
-            }}
-            onMonthChange={handleMonthChange}
-            selectedDays={selectedDate}
-            onDayClick={handleDateChange}
-            months={[
-              "Janeiro",
-              "Fevereiro",
-              "Março",
-              "Abril",
-              "Maio",
-              "Junho",
-              "Julho",
-              "Agosto",
-              "Setembro",
-              "Outubro",
-              "Novembro",
-              "Dezembro",
-            ]}
-          />
-        </Calendar>
       </Content>
     </Container>
   );

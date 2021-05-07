@@ -3,17 +3,12 @@ import { shade } from "polished";
 
 export const Container = styled.div`
   > header {
-    height: 144px;
+    height: 120px;
     background: #28262e;
-
     display: flex;
     align-items: center;
 
-    div {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-
+    a {
       svg {
         color: #999591;
         width: 24px;
@@ -65,15 +60,15 @@ export const AvatarInput = styled.div`
   align-self: center;
 
   img {
-    width: 186px;
-    height: 186px;
+    width: 156px;
+    height: 156px;
     border-radius: 50%;
   }
 
   label {
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     background: #ff9000;
     border-radius: 50%;
     right: 0;

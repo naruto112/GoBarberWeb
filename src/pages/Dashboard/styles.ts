@@ -9,17 +9,17 @@ export const Header = styled.header`
 `;
 
 export const HeaderContent = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
   display: flex;
   align-items: center;
+  margin-top: 20px;
 
   > img {
-    height: 80px;
+    height: 60px;
   }
 
   button {
-    margin-left: auto;
     background: transparent;
     border: 0;
 
@@ -34,11 +34,10 @@ export const HeaderContent = styled.div`
 export const Profile = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 80px;
 
   img {
-    width: 56px;
-    height: 56px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
   }
 
@@ -55,6 +54,7 @@ export const Profile = styled.div`
     a {
       text-decoration: none;
       color: #ff9000;
+      font-size: 14px;
 
       &:hover {
         opacity: 0.8;
@@ -64,15 +64,12 @@ export const Profile = styled.div`
 `;
 
 export const Content = styled.main`
-  max-width: 1120px;
-  margin: 64px auto;
   display: flex;
+  justify-content: center;
+  margin: 54px auto;
 `;
 
 export const Schedule = styled.div`
-  flex: 1;
-  margin-right: 120px;
-
   h1 {
     font-size: 36px;
   }
@@ -196,13 +193,13 @@ export const Appointment = styled.div`
     background: #3e3b47;
     display: flex;
     align-items: center;
-    padding: 16px 24px;
+    padding: 12px 24px;
     border-radius: 10px;
     margin-left: 24px;
 
     img {
-      width: 56px;
-      height: 56px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
     }
 
@@ -215,7 +212,8 @@ export const Appointment = styled.div`
 `;
 
 export const Calendar = styled.aside`
-  width: 380px;
+  width: 350px;
+  margin-top: 30px;
   .DayPicker {
     background: #28262e;
     border-radius: 10px;
